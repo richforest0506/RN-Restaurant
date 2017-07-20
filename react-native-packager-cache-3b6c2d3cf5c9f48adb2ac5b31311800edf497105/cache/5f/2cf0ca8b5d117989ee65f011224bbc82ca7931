@@ -1,0 +1,347 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _jsxFileName = '/html/Restaurant/app/screen/Category.js';
+
+var _Ionicons = require('react-native-vector-icons/Ionicons');
+
+var _Ionicons2 = babelHelpers.interopRequireDefault(_Ionicons);
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var _background = require('../img/background.png');
+
+var _background2 = babelHelpers.interopRequireDefault(_background);
+
+var _topicImage = require('../img/topicImage.png');
+
+var _topicImage2 = babelHelpers.interopRequireDefault(_topicImage);
+
+var _lineTitle = require('../img/lineTitle.png');
+
+var _lineTitle2 = babelHelpers.interopRequireDefault(_lineTitle);
+
+var _button_active = require('../img/button_active.png');
+
+var _button_active2 = babelHelpers.interopRequireDefault(_button_active);
+
+var _Header = require('./Header');
+
+var _Header2 = babelHelpers.interopRequireDefault(_Header);
+
+var _Dimensions$get = _reactNative.Dimensions.get('window'),
+    width = _Dimensions$get.width,
+    height = _Dimensions$get.height;
+
+var Menu = function (_Component) {
+  babelHelpers.inherits(Menu, _Component);
+
+  function Menu(props) {
+    babelHelpers.classCallCheck(this, Menu);
+
+    var _this = babelHelpers.possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).call(this, props));
+
+    _this.state = {
+      refreshing: false,
+      topics: [{ id: "1", title: "Spinach Sweet Crips Salad 3", price: "25.00", image: "http://www.qualitydestinations.com/wp-content/uploads/Thai-Food.jpg" }, { id: "2", title: "Spinach Sweet Crips Salad 4", price: "10.00", image: "http://cityclubdallas.com/wp-content/uploads/2015/05/food-500x3001.jpg" }, { id: "3", title: "Spinach Sweet Crips Salad 5", price: "15.00", image: "http://3.bp.blogspot.com/-T7bFMND2Pwg/UIBq1PKTpFI/AAAAAAAAAE8/U4qeKOWFFeE/s1600/french-food-recipes.jpg" }, { id: "4", title: "Spinach Sweet Crips Salad 2", price: "50.00", image: "http://cdn.24.co.za/files/Cms/General/d/2374/5051d0297c264ac38d45957111efcf1c.jpg" }, { id: "5", title: "Spinach Sweet Crips Salad 2", price: "90.00", image: "http://www.socialwineandtapas.com/wp-content/themes/swt/img/grid/images/grid_26.jpg" }]
+    };
+    _this.refresh = _this.refresh.bind(_this);
+    _this.renderFooter = _this.renderFooter.bind(_this);
+    _this.post = _this.post.bind(_this);
+    return _this;
+  }
+
+  babelHelpers.createClass(Menu, [{
+    key: 'post',
+    value: function post() {
+      this.props.navigation.navigate("Post");
+    }
+  }, {
+    key: 'refresh',
+    value: function refresh() {
+      var _this2 = this;
+
+      this.setState({
+        refreshing: true
+      });
+      var newData = [];
+      imageRandom = ["https://www.burleymanor.com/wp-content/uploads/2016/03/AFT-BM-500x300.jpg", "http://medias.sit.herault-tourisme.com/500x300/RESLAR034FS00274/4-4-assiettes-2016.jpg", "http://www.desigbarcelona.com/blog/wp-content/uploads/2011/07/Tapas-Bars-EN.jpg", "https://media.primomo.co/3680/tapasenbarcelona.500x300.jpg", "https://www.citypassguide.com/media/slideshow/Cafe-de-Opera-banner.jpg.500x300_q85_crop.jpg"];
+      for (i = this.state.topics.length; i < this.state.topics.length + 3; i++) {
+        newData.push({ id: i + 1, title: "Tater tots Salad " + (i + 1), price: "50.00", image: imageRandom[Math.floor(Math.random() * imageRandom.length)] });
+      }
+      data = this.state.topics.concat(newData);
+      setTimeout(function () {
+        _this2.setState({
+          refreshing: false,
+          topics: data
+        });
+      }, 100);
+    }
+  }, {
+    key: 'renderFooter',
+    value: function renderFooter() {
+      if (!this.state.refreshing) {
+        return _react2.default.createElement(
+          _reactNative.View,
+          { style: { padding: 20 }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 71
+            }
+          },
+          _react2.default.createElement(_reactNative.ActivityIndicator, { animating: true, color: 'white', size: 'large', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 72
+            }
+          })
+        );
+      } else {
+        return _react2.default.createElement(_reactNative.View, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 76
+          }
+        });
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this3 = this;
+
+      var navigate = this.props.navigation.navigate;
+      var params = this.props.navigation.state.params;
+
+      return _react2.default.createElement(
+        _reactNative.View,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 83
+          }
+        },
+        _react2.default.createElement(_Header2.default, { title: params.category, navigation: this.props.navigation, goBack: true, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 84
+          }
+        }),
+        _react2.default.createElement(
+          _reactNative.View,
+          { style: styles.container, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 86
+            }
+          },
+          _react2.default.createElement(
+            _reactNative.View,
+            { style: styles.menu, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 87
+              }
+            },
+            _react2.default.createElement(_reactNative.FlatList, {
+              style: styles.flatlist,
+              keyExtractor: function keyExtractor(item) {
+                return item.id;
+              },
+              ListFooterComponent: this.renderFooter,
+              showsVerticalScrollIndicator: false,
+              refreshing: false,
+              onEndReached: this.refresh,
+              onEndReachedThreshold: 1,
+              data: this.state.topics,
+              renderItem: function renderItem(_ref) {
+                var item = _ref.item,
+                    index = _ref.index;
+                return _react2.default.createElement(
+                  _reactNative.TouchableOpacity,
+                  { onPress: function onPress() {
+                      _this3.post(item.id);
+                    }, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 98
+                    }
+                  },
+                  _react2.default.createElement(
+                    _reactNative.View,
+                    { style: styles.topic, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 99
+                      }
+                    },
+                    _react2.default.createElement(_reactNative.Image, { source: { uri: item.image }, style: styles.imageTopic, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 100
+                      }
+                    }),
+                    _react2.default.createElement(
+                      _reactNative.View,
+                      { style: styles.title, __source: {
+                          fileName: _jsxFileName,
+                          lineNumber: 101
+                        }
+                      },
+                      _react2.default.createElement(
+                        _reactNative.View,
+                        { style: styles.lineTitleWrapper, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 102
+                          }
+                        },
+                        _react2.default.createElement(_reactNative.Image, { source: _lineTitle2.default, style: styles.lineTitle, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 103
+                          }
+                        })
+                      ),
+                      _react2.default.createElement(
+                        _reactNative.Text,
+                        { style: styles.titleText, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 105
+                          }
+                        },
+                        item.title
+                      )
+                    ),
+                    _react2.default.createElement(
+                      _reactNative.View,
+                      { style: styles.buttonPriceWrapper, __source: {
+                          fileName: _jsxFileName,
+                          lineNumber: 107
+                        }
+                      },
+                      _react2.default.createElement(
+                        _reactNative.Text,
+                        { style: styles.price, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 108
+                          }
+                        },
+                        '$ ',
+                        item.price
+                      ),
+                      _react2.default.createElement(_reactNative.Image, { source: _button_active2.default, __source: {
+                          fileName: _jsxFileName,
+                          lineNumber: 109
+                        }
+                      })
+                    ),
+                    index != 0 ? _react2.default.createElement(
+                      _reactNative.View,
+                      { style: styles.stupidButtonPrice, __source: {
+                          fileName: _jsxFileName,
+                          lineNumber: 112
+                        }
+                      },
+                      _react2.default.createElement(_reactNative.Image, { source: _button_active2.default, __source: {
+                          fileName: _jsxFileName,
+                          lineNumber: 113
+                        }
+                      })
+                    ) : _react2.default.createElement(_reactNative.View, {
+                      __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 114
+                      }
+                    })
+                  )
+                );
+              },
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 88
+              }
+            })
+          )
+        )
+      );
+    }
+  }]);
+  return Menu;
+}(_react.Component);
+
+exports.default = Menu;
+
+
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    minHeight: height,
+    backgroundColor: '#27293E'
+  },
+  flatlist: {
+    marginTop: 50
+  },
+  topic: {
+    minWidth: width
+  },
+  buttonPriceWrapper: {
+    position: 'absolute',
+    right: 20,
+    zIndex: 1,
+    bottom: -30
+  },
+  stupidButtonPrice: {
+    position: 'absolute',
+    top: -70,
+    right: 20
+  },
+  price: {
+    position: 'absolute',
+    left: 15,
+    color: 'white',
+    top: 40,
+    width: 70,
+    textAlign: 'center',
+    fontSize: 15,
+    zIndex: 1000
+  },
+  lineTitleWrapper: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0
+  },
+  lineTitle: {
+    height: 40
+  },
+  imageTopic: {
+    height: 200,
+    resizeMode: 'cover',
+    width: width
+  },
+  title: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    padding: 10
+  },
+  titleText: {
+    color: 'white'
+  },
+  menu: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center'
+  },
+  backgroundImageWraper: {
+    flex: 1,
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: '#27293E'
+  },
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
+    height: null,
+    width: null,
+    opacity: 0.5
+  }
+});

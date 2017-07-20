@@ -1,0 +1,186 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _jsxFileName = '/html/Restaurant/app/screen/Menu.js';
+
+var _Ionicons = require('react-native-vector-icons/Ionicons');
+
+var _Ionicons2 = babelHelpers.interopRequireDefault(_Ionicons);
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var _background = require('../img/background.png');
+
+var _background2 = babelHelpers.interopRequireDefault(_background);
+
+var _ButtonMenu = require('../component/ButtonMenu');
+
+var _ButtonMenu2 = babelHelpers.interopRequireDefault(_ButtonMenu);
+
+var _Header = require('./Header');
+
+var _Header2 = babelHelpers.interopRequireDefault(_Header);
+
+var _Dimensions$get = _reactNative.Dimensions.get('window'),
+    width = _Dimensions$get.width,
+    height = _Dimensions$get.height;
+
+var Menu = function (_Component) {
+  babelHelpers.inherits(Menu, _Component);
+
+  function Menu(props) {
+    babelHelpers.classCallCheck(this, Menu);
+
+    var _this = babelHelpers.possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).call(this, props));
+
+    _this.category = _this.category.bind(_this);
+    return _this;
+  }
+
+  babelHelpers.createClass(Menu, [{
+    key: 'category',
+    value: function category(_category) {
+      this.props.navigation.navigate("Category", { category: _category });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      var navigate = this.props.navigation.navigate;
+
+      return _react2.default.createElement(
+        _reactNative.View,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 29
+          }
+        },
+        _react2.default.createElement(_Header2.default, { title: 'Menu', navigation: this.props.navigation, goBack: true, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 30
+          }
+        }),
+        _react2.default.createElement(
+          _reactNative.ScrollView,
+          { showsVerticalScrollIndicator: false, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 31
+            }
+          },
+          _react2.default.createElement(
+            _reactNative.View,
+            { style: styles.container, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 32
+              }
+            },
+            _react2.default.createElement(
+              _reactNative.View,
+              { style: styles.backgroundImageWraper, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 33
+                }
+              },
+              _react2.default.createElement(_reactNative.Image, { source: _background2.default, style: styles.backgroundImage, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 34
+                }
+              })
+            ),
+            _react2.default.createElement(
+              _reactNative.View,
+              { style: styles.menu, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 36
+                }
+              },
+              _react2.default.createElement(_ButtonMenu2.default, { icon: 'ios-pizza-outline', onPress: function onPress() {
+                  return _this2.category("Pizza");
+                }, name: 'Pizza', navigation: this.props.navigation, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 37
+                }
+              }),
+              _react2.default.createElement(_ButtonMenu2.default, { icon: 'ios-rose-outline', onPress: function onPress() {
+                  return _this2.category("Tapas");
+                }, name: 'Tapas', navigation: this.props.navigation, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 38
+                }
+              }),
+              _react2.default.createElement(_ButtonMenu2.default, { icon: 'ios-nutrition-outline', onPress: function onPress() {
+                  return _this2.category("Diet");
+                }, name: 'Diet', navigation: this.props.navigation, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 39
+                }
+              }),
+              _react2.default.createElement(_ButtonMenu2.default, { icon: 'ios-flame-outline', onPress: function onPress() {
+                  return _this2.category("Fried");
+                }, name: 'Fried', navigation: this.props.navigation, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 40
+                }
+              }),
+              _react2.default.createElement(_ButtonMenu2.default, { icon: 'ios-cafe-outline', onPress: function onPress() {
+                  return _this2.category("Cafe");
+                }, name: 'Cafe', navigation: this.props.navigation, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 41
+                }
+              }),
+              _react2.default.createElement(_ButtonMenu2.default, { icon: 'ios-ice-cream-outline', onPress: function onPress() {
+                  return _this2.category("Cream");
+                }, name: 'Ice Cream', navigation: this.props.navigation, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 42
+                }
+              })
+            )
+          )
+        )
+      );
+    }
+  }]);
+  return Menu;
+}(_react.Component);
+
+exports.default = Menu;
+
+
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    minHeight: height,
+    paddingBottom: 50,
+    alignItems: 'center',
+    paddingTop: 50
+  },
+  menu: {
+    justifyContent: 'space-around',
+    flexDirection: 'row',
+    alignItems: 'center',
+    flexWrap: 'wrap'
+  },
+  backgroundImageWraper: {
+    flex: 1,
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: '#27293E'
+  },
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
+    height: null,
+    width: null,
+    opacity: 0.5
+  }
+});

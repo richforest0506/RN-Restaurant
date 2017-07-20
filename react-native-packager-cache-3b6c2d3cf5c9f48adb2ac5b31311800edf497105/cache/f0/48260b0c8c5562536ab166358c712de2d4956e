@@ -1,0 +1,153 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _jsxFileName = '/html/Restaurant/app/screen/Header.js';
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _Ionicons = require('react-native-vector-icons/Ionicons');
+
+var _Ionicons2 = babelHelpers.interopRequireDefault(_Ionicons);
+
+var _reactNative = require('react-native');
+
+var _headerBackground = require('../img/headerBackground.png');
+
+var _headerBackground2 = babelHelpers.interopRequireDefault(_headerBackground);
+
+var _Dimensions$get = _reactNative.Dimensions.get('window'),
+    width = _Dimensions$get.width,
+    height = _Dimensions$get.height;
+
+var Header = function (_Component) {
+  babelHelpers.inherits(Header, _Component);
+
+  function Header(props) {
+    babelHelpers.classCallCheck(this, Header);
+
+    var _this = babelHelpers.possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
+
+    _this.goBack = _this.goBack.bind(_this);
+    return _this;
+  }
+
+  babelHelpers.createClass(Header, [{
+    key: 'goBack',
+    value: function goBack() {
+      this.props.navigation.goBack();
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _reactNative.View,
+        { style: styles.container, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 26
+          }
+        },
+        _react2.default.createElement(_reactNative.View, { style: styles.backgroundOpacity, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 27
+          }
+        }),
+        _react2.default.createElement(
+          _reactNative.View,
+          { style: styles.header, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 29
+            }
+          },
+          this.props.goBack ? _react2.default.createElement(
+            _reactNative.TouchableOpacity,
+            { style: styles.back, onPress: this.goBack, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 31
+              }
+            },
+            _react2.default.createElement(_Ionicons2.default, { style: styles.icon, color: 'white', name: 'ios-arrow-dropleft', size: 30, backgroundColor: 'transparent', __source: {
+                fileName: _jsxFileName,
+                lineNumber: 32
+              }
+            })
+          ) : _react2.default.createElement(_reactNative.Text, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 33
+            }
+          }),
+          _react2.default.createElement(
+            _reactNative.Text,
+            { style: styles.title, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 34
+              }
+            },
+            this.props.title
+          ),
+          this.props.otherIcon != null ? _react2.default.createElement(
+            _reactNative.TouchableOpacity,
+            { style: styles.otherIcon, onPress: this.props.otherIconPress, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 37
+              }
+            },
+            _react2.default.createElement(_Ionicons2.default, { style: styles.icon, color: 'white', name: this.props.otherIcon, size: 30, backgroundColor: 'transparent', __source: {
+                fileName: _jsxFileName,
+                lineNumber: 38
+              }
+            })
+          ) : null
+        )
+      );
+    }
+  }]);
+  return Header;
+}(_react.Component);
+
+exports.default = Header;
+
+
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    height: 50,
+    zIndex: 11
+  },
+  header: {
+    width: width,
+    justifyContent: 'center'
+  },
+  back: {
+    position: 'absolute',
+    top: 2,
+    left: 2,
+    padding: 10
+  },
+  otherIcon: {
+    position: 'absolute',
+    top: 2,
+    right: 2,
+    padding: 10
+  },
+  title: {
+    fontSize: 20,
+    color: 'white',
+    alignSelf: 'center',
+    marginTop: 10
+  },
+  backgroundOpacity: {
+    flex: 1,
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: '#27293E',
+    opacity: 0.9
+  }
+});

@@ -1,0 +1,43 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _jsxFileName = '/html/Restaurant/index.android.js';
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var _App = require('./app/App');
+
+var _App2 = babelHelpers.interopRequireDefault(_App);
+
+var Restaurant = function (_Component) {
+  babelHelpers.inherits(Restaurant, _Component);
+
+  function Restaurant() {
+    babelHelpers.classCallCheck(this, Restaurant);
+    return babelHelpers.possibleConstructorReturn(this, (Restaurant.__proto__ || Object.getPrototypeOf(Restaurant)).apply(this, arguments));
+  }
+
+  babelHelpers.createClass(Restaurant, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(_App2.default, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 19
+        }
+      });
+    }
+  }]);
+  return Restaurant;
+}(_react.Component);
+
+exports.default = Restaurant;
+
+
+_reactNative.AppRegistry.registerComponent('Restaurant', function () {
+  return Restaurant;
+});

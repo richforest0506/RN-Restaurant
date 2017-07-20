@@ -1,0 +1,309 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _jsxFileName = '/html/Restaurant/app/screen/NewCategory.js';
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var _Header = require('./Header');
+
+var _Header2 = babelHelpers.interopRequireDefault(_Header);
+
+var _topicImage = require('../img/topicImage.png');
+
+var _topicImage2 = babelHelpers.interopRequireDefault(_topicImage);
+
+var _Dimensions$get = _reactNative.Dimensions.get('window'),
+    width = _Dimensions$get.width,
+    height = _Dimensions$get.height;
+
+var NewCategory = function (_Component) {
+  babelHelpers.inherits(NewCategory, _Component);
+
+  function NewCategory(props) {
+    babelHelpers.classCallCheck(this, NewCategory);
+
+    var _this = babelHelpers.possibleConstructorReturn(this, (NewCategory.__proto__ || Object.getPrototypeOf(NewCategory)).call(this, props));
+
+    _this.state = {
+      refreshing: false,
+      news: [{ id: 0, title: 'Lorem Ipsum 0', date: 'Tuesday, Aprial 28th, 2017', description: 'Lorem ipsum, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', image: "https://www.burleymanor.com/wp-content/uploads/2016/03/AFT-BM-500x300.jpg" }, { id: 1, title: 'Lorem Ipsum 1', date: 'Tuesday, Aprial 28th, 2017', description: 'Lorem ipsum, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', image: "http://medias.sit.herault-tourisme.com/500x300/RESLAR034FS00274/4-4-assiettes-2016.jpg" }, { id: 2, title: 'Lorem Ipsum 2', date: 'Tuesday, Aprial 28th, 2017', description: 'Lorem ipsum, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', image: "http://www.desigbarcelona.com/blog/wp-content/uploads/2011/07/Tapas-Bars-EN.jpg" }, { id: 3, title: 'Lorem Ipsum 3', date: 'Tuesday, Aprial 28th, 2017', description: 'Lorem ipsum, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', image: "https://media.primomo.co/3680/tapasenbarcelona.500x300.jpg" }, { id: 4, title: 'Lorem Ipsum 4', date: 'Tuesday, Aprial 28th, 2017', description: 'Lorem ipsum, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', image: "https://www.citypassguide.com/media/slideshow/Cafe-de-Opera-banner.jpg.500x300_q85_crop.jpg" }]
+    };
+    _this.renderFooter = _this.renderFooter.bind(_this);
+    _this.refresh = _this.refresh.bind(_this);
+    _this.new = _this.new.bind(_this);
+    return _this;
+  }
+
+  babelHelpers.createClass(NewCategory, [{
+    key: 'new',
+    value: function _new() {
+      this.props.navigation.navigate("New");
+    }
+  }, {
+    key: 'refresh',
+    value: function refresh() {
+      var _this2 = this;
+
+      this.setState({
+        refreshing: true
+      });
+      var newData = [];
+      imageRandom = ["https://www.burleymanor.com/wp-content/uploads/2016/03/AFT-BM-500x300.jpg", "http://medias.sit.herault-tourisme.com/500x300/RESLAR034FS00274/4-4-assiettes-2016.jpg", "http://www.desigbarcelona.com/blog/wp-content/uploads/2011/07/Tapas-Bars-EN.jpg", "https://media.primomo.co/3680/tapasenbarcelona.500x300.jpg", "https://www.citypassguide.com/media/slideshow/Cafe-de-Opera-banner.jpg.500x300_q85_crop.jpg"];
+      for (i = this.state.news.length; i < this.state.news.length + 3; i++) {
+        newData.push({ id: i + 1, title: "Lorem " + (i + 1), date: "7 July 2017", description: "Lorem Ipsum, bla bads jasdja sjkdsa jjk sadnsad", image: imageRandom[Math.floor(Math.random() * imageRandom.length)] });
+      }
+      data = this.state.news.concat(newData);
+      setTimeout(function () {
+        _this2.setState({
+          refreshing: false,
+          news: data
+        });
+      }, 100);
+    }
+  }, {
+    key: 'renderFooter',
+    value: function renderFooter() {
+      if (!this.state.refreshing) {
+        return _react2.default.createElement(
+          _reactNative.View,
+          { style: { padding: 20 }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 66
+            }
+          },
+          _react2.default.createElement(_reactNative.ActivityIndicator, { animating: true, color: 'white', size: 'large', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 67
+            }
+          })
+        );
+      } else {
+        return _react2.default.createElement(_reactNative.View, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 71
+          }
+        });
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this3 = this;
+
+      return _react2.default.createElement(
+        _reactNative.View,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 76
+          }
+        },
+        _react2.default.createElement(_Header2.default, { title: 'News', navigation: this.props.navigation, goBack: true, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 77
+          }
+        }),
+        _react2.default.createElement(
+          _reactNative.View,
+          { style: styles.container, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 78
+            }
+          },
+          _react2.default.createElement(_reactNative.FlatList, {
+            keyExtractor: function keyExtractor(item) {
+              return item.id;
+            },
+            ListFooterComponent: this.renderFooter,
+            showsVerticalScrollIndicator: false,
+            refreshing: false,
+            onEndReached: this.refresh,
+            onEndReachedThreshold: 1,
+            data: this.state.news,
+            renderItem: function renderItem(_ref) {
+              var item = _ref.item,
+                  index = _ref.index;
+              return _react2.default.createElement(
+                _reactNative.TouchableOpacity,
+                { onPress: _this3.new, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 88
+                  }
+                },
+                index % 2 == 0 ? _react2.default.createElement(
+                  _reactNative.View,
+                  { style: [styles.topic], __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 90
+                    }
+                  },
+                  _react2.default.createElement(
+                    _reactNative.View,
+                    { style: styles.imageWrapper, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 91
+                      }
+                    },
+                    _react2.default.createElement(_reactNative.Image, { style: styles.image, source: { uri: item.image }, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 92
+                      }
+                    })
+                  ),
+                  _react2.default.createElement(
+                    _reactNative.View,
+                    { style: styles.information, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 94
+                      }
+                    },
+                    _react2.default.createElement(
+                      _reactNative.Text,
+                      { style: styles.title, __source: {
+                          fileName: _jsxFileName,
+                          lineNumber: 95
+                        }
+                      },
+                      item.title.toUpperCase()
+                    ),
+                    _react2.default.createElement(
+                      _reactNative.Text,
+                      { style: styles.date, __source: {
+                          fileName: _jsxFileName,
+                          lineNumber: 96
+                        }
+                      },
+                      item.date
+                    ),
+                    _react2.default.createElement(
+                      _reactNative.Text,
+                      { style: styles.description, __source: {
+                          fileName: _jsxFileName,
+                          lineNumber: 97
+                        }
+                      },
+                      item.description,
+                      '.'
+                    )
+                  )
+                ) : _react2.default.createElement(
+                  _reactNative.View,
+                  { style: [styles.topic, styles.topicReverse], __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 101
+                    }
+                  },
+                  _react2.default.createElement(
+                    _reactNative.View,
+                    { style: styles.imageWrapper, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 102
+                      }
+                    },
+                    _react2.default.createElement(_reactNative.Image, { style: styles.image, source: { uri: item.image }, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 103
+                      }
+                    })
+                  ),
+                  _react2.default.createElement(
+                    _reactNative.View,
+                    { style: styles.information, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 105
+                      }
+                    },
+                    _react2.default.createElement(
+                      _reactNative.Text,
+                      { style: styles.title, __source: {
+                          fileName: _jsxFileName,
+                          lineNumber: 106
+                        }
+                      },
+                      item.title.toUpperCase()
+                    ),
+                    _react2.default.createElement(
+                      _reactNative.Text,
+                      { style: styles.date, __source: {
+                          fileName: _jsxFileName,
+                          lineNumber: 107
+                        }
+                      },
+                      item.date
+                    ),
+                    _react2.default.createElement(
+                      _reactNative.Text,
+                      { style: styles.description, __source: {
+                          fileName: _jsxFileName,
+                          lineNumber: 108
+                        }
+                      },
+                      item.description,
+                      '.'
+                    )
+                  )
+                )
+              );
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 79
+            }
+          })
+        )
+      );
+    }
+  }]);
+  return NewCategory;
+}(_react.Component);
+
+exports.default = NewCategory;
+
+
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    paddingTop: 50,
+    backgroundColor: '#27293E'
+  },
+  topic: {
+    flexDirection: 'row'
+  },
+  topicReverse: {
+    flexDirection: 'row-reverse'
+  },
+  imageWrapper: {
+    height: width / 2,
+    width: width / 2
+  },
+  image: {
+    height: width / 2,
+    width: width / 2,
+    resizeMode: 'cover'
+  },
+  information: {
+    height: width / 2,
+    width: width / 2,
+    padding: 15,
+    backgroundColor: 'white'
+  },
+  title: {
+    color: 'black',
+    fontSize: 17,
+    fontWeight: 'bold'
+  },
+  date: {
+    fontSize: 8,
+    marginVertical: 8
+  },
+  description: {
+    fontSize: 12,
+    lineHeight: 15
+
+  }
+});

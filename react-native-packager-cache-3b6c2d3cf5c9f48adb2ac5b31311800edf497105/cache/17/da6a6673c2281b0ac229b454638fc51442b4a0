@@ -1,0 +1,227 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _jsxFileName = '/html/Restaurant/app/screen/Home.js';
+
+var _Ionicons = require('react-native-vector-icons/Ionicons');
+
+var _Ionicons2 = babelHelpers.interopRequireDefault(_Ionicons);
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var _background = require('../img/background.png');
+
+var _background2 = babelHelpers.interopRequireDefault(_background);
+
+var _logo = require('../img/logo.png');
+
+var _logo2 = babelHelpers.interopRequireDefault(_logo);
+
+var _Header = require('./Header');
+
+var _Header2 = babelHelpers.interopRequireDefault(_Header);
+
+var _ButtonRestaurant = require('../component/ButtonRestaurant');
+
+var _ButtonRestaurant2 = babelHelpers.interopRequireDefault(_ButtonRestaurant);
+
+var _Dimensions$get = _reactNative.Dimensions.get('window'),
+    width = _Dimensions$get.width,
+    height = _Dimensions$get.height;
+
+var Home = function (_Component) {
+  babelHelpers.inherits(Home, _Component);
+
+  function Home(props) {
+    babelHelpers.classCallCheck(this, Home);
+
+    var _this = babelHelpers.possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
+
+    _this.menu = _this.menu.bind(_this);
+    _this.new = _this.new.bind(_this);
+    _this.wine = _this.wine.bind(_this);
+    _this.feedback = _this.feedback.bind(_this);
+    _this.booking = _this.booking.bind(_this);
+    _this.contact = _this.contact.bind(_this);
+    return _this;
+  }
+
+  babelHelpers.createClass(Home, [{
+    key: 'menu',
+    value: function menu() {
+      this.props.navigation.navigate("Menu");
+    }
+  }, {
+    key: 'new',
+    value: function _new() {
+      this.props.navigation.navigate("NewCategory");
+    }
+  }, {
+    key: 'wine',
+    value: function wine() {
+      this.props.navigation.navigate("WineCategory");
+    }
+  }, {
+    key: 'feedback',
+    value: function feedback() {
+      this.props.navigation.navigate("Feedback");
+    }
+  }, {
+    key: 'booking',
+    value: function booking() {
+      this.props.navigation.navigate("Booking");
+    }
+  }, {
+    key: 'contact',
+    value: function contact() {
+      this.props.navigation.navigate("Contact");
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var navigate = this.props.navigation.navigate;
+
+      return _react2.default.createElement(
+        _reactNative.ScrollView,
+        { showsVerticalScrollIndicator: false, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 54
+          }
+        },
+        _react2.default.createElement(
+          _reactNative.View,
+          { style: styles.container, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 56
+            }
+          },
+          _react2.default.createElement(
+            _reactNative.View,
+            { style: styles.backgroundImageWraper, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 57
+              }
+            },
+            _react2.default.createElement(_reactNative.Image, { source: _background2.default, style: styles.backgroundImage, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 58
+              }
+            })
+          ),
+          _react2.default.createElement(
+            _reactNative.View,
+            { style: styles.logoArea, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 60
+              }
+            },
+            _react2.default.createElement(_reactNative.Image, { source: _logo2.default, style: styles.logo, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 61
+              }
+            })
+          ),
+          _react2.default.createElement(
+            _reactNative.View,
+            { style: [styles.buttonArea, styles.buttonAreaFirst], __source: {
+                fileName: _jsxFileName,
+                lineNumber: 63
+              }
+            },
+            _react2.default.createElement(_ButtonRestaurant2.default, { icon: 'ios-restaurant', name: 'Menu', onPress: this.menu, navigation: this.props.navigation, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 64
+              }
+            }),
+            _react2.default.createElement(_ButtonRestaurant2.default, { icon: 'ios-stats', name: 'New', onPress: this.new, navigation: this.props.navigation, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 65
+              }
+            }),
+            _react2.default.createElement(_ButtonRestaurant2.default, { icon: 'ios-play', name: 'Wine', onPress: this.wine, navigation: this.props.navigation, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 66
+              }
+            }),
+            _react2.default.createElement(_ButtonRestaurant2.default, { icon: 'ios-paper', name: 'Feedback', onPress: this.feedback, navigation: this.props.navigation, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 69
+              }
+            }),
+            _react2.default.createElement(_ButtonRestaurant2.default, { icon: 'ios-book', name: 'Booking', onPress: this.booking, navigation: this.props.navigation, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 70
+              }
+            }),
+            _react2.default.createElement(_ButtonRestaurant2.default, { icon: 'ios-pin', name: 'Contact', onPress: this.contact, navigation: this.props.navigation, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 71
+              }
+            })
+          ),
+          _react2.default.createElement(
+            _reactNative.Text,
+            { style: styles.developer, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 73
+              }
+            },
+            'Developer by Pham Cong Son'
+          )
+        )
+      );
+    }
+  }]);
+  return Home;
+}(_react.Component);
+
+exports.default = Home;
+
+
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    minHeight: height,
+    paddingBottom: 50
+  },
+  logoArea: {},
+  buttonArea: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    marginBottom: 10,
+    paddingHorizontal: 10
+  },
+  logo: {
+    alignSelf: 'center',
+    resizeMode: 'contain',
+    width: 300
+  },
+  backgroundImageWraper: {
+    flex: 1,
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: '#27293E'
+  },
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
+    height: null,
+    width: null,
+    opacity: 0.3
+  },
+  developer: {
+    position: 'absolute',
+    bottom: 20,
+    left: 0,
+    right: 0,
+    color: 'white',
+    textAlign: 'center'
+  }
+});

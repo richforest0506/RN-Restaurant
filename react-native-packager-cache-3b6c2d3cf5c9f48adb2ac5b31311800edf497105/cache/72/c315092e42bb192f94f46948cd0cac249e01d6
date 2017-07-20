@@ -1,0 +1,143 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNavigation = require('react-navigation');
+
+var _Ionicons = require('react-native-vector-icons/Ionicons');
+
+var _Ionicons2 = babelHelpers.interopRequireDefault(_Ionicons);
+
+var _reactNative = require('react-native');
+
+var _Home = require('./screen/Home');
+
+var _Home2 = babelHelpers.interopRequireDefault(_Home);
+
+var _Menu = require('./screen/Menu');
+
+var _Menu2 = babelHelpers.interopRequireDefault(_Menu);
+
+var _Category = require('./screen/Category');
+
+var _Category2 = babelHelpers.interopRequireDefault(_Category);
+
+var _Post = require('./screen/Post');
+
+var _Post2 = babelHelpers.interopRequireDefault(_Post);
+
+var _NewCategory = require('./screen/NewCategory');
+
+var _NewCategory2 = babelHelpers.interopRequireDefault(_NewCategory);
+
+var _New = require('./screen/New');
+
+var _New2 = babelHelpers.interopRequireDefault(_New);
+
+var _WineCategory = require('./screen/WineCategory');
+
+var _WineCategory2 = babelHelpers.interopRequireDefault(_WineCategory);
+
+var _Wine = require('./screen/Wine');
+
+var _Wine2 = babelHelpers.interopRequireDefault(_Wine);
+
+var _Booking = require('./screen/Booking');
+
+var _Booking2 = babelHelpers.interopRequireDefault(_Booking);
+
+var _Feedback = require('./screen/Feedback');
+
+var _Feedback2 = babelHelpers.interopRequireDefault(_Feedback);
+
+var _Contact = require('./screen/Contact');
+
+var _Contact2 = babelHelpers.interopRequireDefault(_Contact);
+
+var Route = (0, _reactNavigation.StackNavigator)({
+  Home: {
+    screen: _Home2.default,
+    navigationOptions: {
+      title: "Home"
+    }
+  },
+  Menu: {
+    screen: _Menu2.default,
+    navigationOptions: {
+      title: "Menu"
+    }
+  },
+  Category: {
+    screen: _Category2.default,
+    navigationOptions: {
+      title: "Category"
+    }
+  },
+  Post: {
+    screen: _Post2.default,
+    navigationOptions: {
+      title: "Post"
+    }
+  },
+  NewCategory: {
+    screen: _NewCategory2.default,
+    navigationOptions: {
+      title: "NewCategory"
+    }
+  },
+  New: {
+    screen: _New2.default,
+    navigationOptions: {
+      title: "New"
+    }
+  },
+  WineCategory: {
+    screen: _WineCategory2.default,
+    navigationOptions: {
+      title: "WineCategory"
+    }
+  },
+  Wine: {
+    screen: _Wine2.default,
+    navigationOptions: {
+      title: "Wine"
+    }
+  },
+  Booking: {
+    screen: _Booking2.default,
+    navigationOptions: {
+      title: "Booking"
+    }
+  },
+  Feedback: {
+    screen: _Feedback2.default,
+    navigationOptions: {
+      title: "Feedback"
+    }
+  },
+  Contact: {
+    screen: _Contact2.default,
+    navigationOptions: {
+      title: "Contact"
+    }
+  }
+}, {
+  initialRouteName: 'Home',
+  headerMode: 'none',
+  navigationOptions: {
+    headerStyle: {
+      backgroundColor: "#27293E",
+      opacity: 1
+    },
+    headerTitleStyle: {
+      color: "white",
+      alignSelf: "center",
+      fontWeight: "normal"
+    }
+  }
+});
+exports.default = Route;
